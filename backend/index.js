@@ -6,7 +6,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 2999;
 const MONGO_URI = process.env.MONGO_URI;
-const FRONTEND_URL= process.env.NODE_ENV= 'production' ?
+const FRONTEND_URL= process.env.NODE_ENV === 'production' ?
 process.env.FRONTND_CLOUD_URL : process.env.FRONTEND_LOCAL_URL ;
 
 app.use(express.json());
@@ -58,6 +58,18 @@ app.get('/response/:id', (req, res) => {
       res.status(404).json({ message: 'Error fetching data', error: error.message });
     });
 });
+
+// Route to get all form data
+app.get('/all-data', (req, res) => {
+  Form.find()
+    .then((forms) => {
+      res.status(200).json(forms);
+    })
+    .catch((error) => {
+      res.status(404).json({ message: 'Error fetching forms', error: error.message });
+    });
+});
+
 
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello, welcome to my Server' });
