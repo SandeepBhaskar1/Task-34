@@ -12,7 +12,7 @@ const Alldata = () => {
     useEffect(() => {
         const fetchAllData = async () => {
             try {
-                const response = await fetch(`${BACKEND_URL}/all-forms`);
+                const response = await fetch(`${BACKEND_URL}/all-data`);
                 if (response.ok) {
                     const allData = await response.json();
                     setData(allData);
