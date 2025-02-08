@@ -28,7 +28,7 @@ const Alldata = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 flex justify-center items-center py-10">
-            <div className="w-full max-w-4xl bg-white p-8 rounded-lg shadow-lg">
+            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
                 <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">
                     All Data Submitted
                 </h1>
@@ -37,15 +37,10 @@ const Alldata = () => {
                     <p className="text-center text-gray-500">No data found!</p>
                 ) : (
                     <div>
-                        <ul className="space-y-6">
+                        <ul className="space-y-4">
                             {data.map((item) => (
-                                <li
-                                    key={item._id}
-                                    className="bg-gray-50 p-4 rounded-lg shadow-md hover:bg-gray-100 transition duration-300"
-                                >
-                                    <p className="text-lg font-semibold text-gray-800">
-                                        {item.fullName}
-                                    </p>
+                                <li key={item._id} className="bg-gray-50 p-4 rounded-lg shadow hover:bg-gray-100 transition-colors">
+                                    <p className="text-lg font-semibold text-gray-800">{item.fullName}</p>
                                     <p className="text-sm text-gray-600">{item.emailID}</p>
                                     <p className="text-sm text-gray-600">{item.phoneNumber}</p>
                                 </li>
